@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Suite">
+    <test name="Smoke tests">
+        <classes>
+            <class name="org.example.HomePageTests">
+                <methods>
+                    <include name="clickHeaderItem"/>
+                </methods>
+            </class>
+            <class name="org.example.SearchPageTests">
+                <methods>
+                    <include name="searchProduct"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
