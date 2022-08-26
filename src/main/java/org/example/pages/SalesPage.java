@@ -1,6 +1,7 @@
 package org.example.pages;
 
 import org.example.components.header.IHeaderPage;
+import org.example.utils.ElementNotFound;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,11 +9,16 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class SalesPage extends BasePage implements IHeaderPage {
-    private List<WebElement> products;
     public SalesPage(WebDriver driver) {
         super(driver);
-        this.products = driver.findElements(By.xpath("//ol[@class='items_container']/li/a"));
     }
 
-
+    public ProductPage selectProduct(int index) throws ElementNotFound {
+        List<WebElement>  products = driver.findElements(By.xpath("//ol[@class='items_container']/li/a"));
+        if (index < products.size() -1) {
+            products.get(index).click();
+            return new ProductPage(driver);
+        }
+        throw new ElementNotFound("Index: " + index + " is bigger than the list size: " + products.size());
+    }
 }

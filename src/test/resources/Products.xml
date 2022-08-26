@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Products Stuite">
+    <test name="Products">
+        <groups>
+            <run>
+                <include name="product"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="org.example.SalesPageTests"/>
+            <class name="org.example.HomePageTests"/>
+        </classes>
+    </test>
+</suite>

@@ -15,15 +15,12 @@ import static org.testng.Assert.assertEquals;
 public abstract class BaseTest {
     protected static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     protected WebDriver driver;
-    protected HomePage homePage;
 
     @BeforeSuite
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "rcs/chromedriver-mac");
         driver = new ChromeDriver();
         driver.get("https://www.mercadolibre.com.ar/");
-        homePage = new HomePage(driver);
-        assertEquals(driver.getCurrentUrl(), "https://www.mercadolibre.com.ar/");
     }
 
     @AfterSuite
