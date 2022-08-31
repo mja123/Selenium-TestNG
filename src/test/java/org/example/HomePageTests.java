@@ -5,12 +5,13 @@ import org.example.pages.HomePage;
 import org.example.pages.SalesPage;
 import org.example.utils.ElementNotFound;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
 public class HomePageTests extends BaseTest {
-    WebDriver driver = null;
+    RemoteWebDriver driver = null;
     @Test(groups = { "smoke", "product"})
     public void clickHeaderItem() throws ElementNotFound {
         HomePage homePage = new HomePage(driver);

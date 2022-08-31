@@ -5,11 +5,12 @@ import org.example.utils.ElementNotFound;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.util.List;
 
 public class SalesPage extends BasePage implements IHeaderPage {
-    public SalesPage(WebDriver driver) {
+    public SalesPage(RemoteWebDriver driver) {
         super(driver);
     }
 

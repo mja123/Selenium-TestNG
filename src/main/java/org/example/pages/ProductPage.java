@@ -3,6 +3,7 @@ package org.example.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,7 +13,7 @@ public class ProductPage extends BasePage {
     private Map<WebElement, WebElement> images;
     private final WebElement title;
 
-    public ProductPage(WebDriver driver) {
+    public ProductPage(RemoteWebDriver driver) {
         super(driver);
         this.images = fillImages();
         this.title = driver.findElement(By.tagName("h1"));

@@ -7,6 +7,7 @@ import org.example.utils.Filters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class HeaderPage extends BasePage {
 
     private final WebElement searchBar;
     private final List<WebElement> navBar;
-    public HeaderPage(WebDriver driver) {
+    public HeaderPage(RemoteWebDriver driver) {
         super(driver);
         this.searchBar = driver.findElement(By.id("cb1-edit"));
         this.navBar = driver.findElements(By.xpath("//li[@class= 'nav-menu-item'][position()!=1]/a"));

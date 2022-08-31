@@ -2,8 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Products Suite" parallel="tests">
 
+    <parameter name="browser" value="chrome"/>
     <test name="Products">
-        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="org.example.SalesPageTests"/>
         </classes>

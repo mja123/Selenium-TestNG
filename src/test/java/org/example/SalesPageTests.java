@@ -18,7 +18,7 @@ import java.net.URL;
 import static org.testng.Assert.*;
 
 public class SalesPageTests extends BaseTest {
-    private WebDriver driver;
+    private RemoteWebDriver driver;
 
     @BeforeTest
     @Parameters("browser")
@@ -32,6 +32,7 @@ public class SalesPageTests extends BaseTest {
         }
         driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
         System.out.println(driver + " asdfasdf");
+        driver.get("https://www.mercadolibre.com.ar/");
     }
 
     @AfterTest
@@ -44,7 +45,7 @@ public class SalesPageTests extends BaseTest {
 
         SalesPage salesPage = (SalesPage) homePage.getHeader().navItem(EVarItems.SALES);
         ProductPage productPage = salesPage.selectProduct(0);
-        assertEquals(productPage.availableCountOfDues(), 3);
+        assertEquals(productPage.availableCountOfDues(), 6);
     }
 
     @Test(groups = {"product", "sadf"})
