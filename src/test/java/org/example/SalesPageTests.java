@@ -5,15 +5,39 @@ import org.example.pages.HomePage;
 import org.example.pages.ProductPage;
 import org.example.pages.SalesPage;
 import org.example.utils.ElementNotFound;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.*;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import static org.testng.Assert.*;
 
 public class SalesPageTests extends BaseTest {
+    private WebDriver driver;
 
+    @BeforeTest
+    @Parameters("browser")
+    public void setUp(String browser) throws MalformedURLException {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        switch (browser) {
+            case "chrome" -> capabilities.setBrowserName("chrome");
+            case "firefox" -> capabilities.setBrowserName("firefox");
+            case "edge" -> capabilities.setBrowserName("edge");
+            default -> capabilities.setBrowserName("opera");
+        }
+        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+        System.out.println(driver + " asdfasdf");
+    }
+
+    @AfterTest
+    public void tearDown() {
+        driver.quit();
+    }
     @Test(groups = "product")
     public void selectProductByIndex() throws ElementNotFound {
         HomePage homePage = new HomePage(driver);
