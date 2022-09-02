@@ -42,7 +42,7 @@ public class SalesPageTests extends BaseTest {
     @Test(groups = "product")
     public void selectProductByIndex() throws ElementNotFound {
         HomePage homePage = new HomePage(driver);
-
+        System.out.println("Changes to can create a new git pushs");
         SalesPage salesPage = (SalesPage) homePage.getHeader().navItem(EVarItems.SALES);
         ProductPage productPage = salesPage.selectProduct(0);
         assertEquals(productPage.availableCountOfDues(), 6);
